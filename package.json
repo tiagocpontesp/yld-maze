@@ -1,0 +1,28 @@
+{
+  "name": "follower-maze",
+  "version": "1.0.0",
+  "description": ".",
+  "author": "tiago",
+  "contributors": "tiago",
+  "bugs": "tiago.c.pontes.p@gmail.com",
+  "homepage": "https://github.com/tiagocpontesp/yld-maze",
+  "repository": "https://github.com/tiagocpontesp/yld-maze",
+  "keywords": [],
+  "licenses": [],
+  "engines" : {
+    "node" : "5.x"
+  },
+  "dependencies": {
+    "debug": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "faucet": "0.0.1",
+    "tape": "^4.4.0"
+  },
+  "scripts": {
+    "test": "PORT_EVENT_SOURCE=10001 PORT_CLIENTS=10002 node_modules/.bin/tape tests/**/*.js | node_modules/.bin/faucet",
+    "start": "PORT_EVENT_SOURCE=9090 PORT_CLIENTS=9099 node endpoints/events.js & cd provided && ./followermaze.sh && pkill -n",
+    "dev": "DEBUG=* PORT_EVENT_SOURCE=9090 PORT_CLIENTS=9099 node endpoints/events.js"
+  }
+}
